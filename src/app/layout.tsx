@@ -4,7 +4,6 @@ import "./globals.css";
 import { LoaderProvider } from "@/context/LoaderContext";
 
 const font = AR_One_Sans({ subsets: ["latin"], weight: "400" });
-// const font = Poppins({ weight: "400" });
 
 export const metadata: Metadata = {
   title: "Github User search",
