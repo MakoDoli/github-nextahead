@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { AR_One_Sans } from "next/font/google";
 import "./globals.css";
 import { LoaderProvider } from "@/context/LoaderContext";
 
-const font = Inter({ subsets: ["latin"], weight: "400" });
+const font = AR_One_Sans({ subsets: ["latin"], weight: "400" });
 // const font = Poppins({ weight: "400" });
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={font.className}>
+      <body className={`${font.className} antialiased`}>
         <LoaderProvider>{children}</LoaderProvider>
       </body>
     </html>

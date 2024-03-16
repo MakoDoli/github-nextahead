@@ -15,6 +15,7 @@ import {
 import github from "/public/github.png";
 import { BackgroundGradient } from "../../../components/ui/background-gradient";
 import Link from "next/link";
+import { Metadata } from "next";
 
 type UserType = {
   login: string;
@@ -25,9 +26,7 @@ type UserType = {
   public_repos: number;
 };
 
-type SearchType = {
-  searchValue: string;
-};
+let pageTitle = "";
 
 export default function UserInfo({
   params,
@@ -36,8 +35,8 @@ export default function UserInfo({
     name: string;
   };
 }) {
-  const postId = params.name;
-  console.log(postId);
+  const userName = params.name;
+  pageTitle = userName;
   const [isLoading, setisLoading] = useState(false);
   const [info, setInfo] = useState<UserType>({
     login: "",
@@ -61,8 +60,8 @@ export default function UserInfo({
         setisLoading(false);
       }
     }
-    getData(BASE_URL_USER, postId);
-  }, [postId]);
+    getData(BASE_URL_USER, userName);
+  }, [userName]);
 
   const {
     login,
@@ -89,7 +88,7 @@ export default function UserInfo({
             <HoverCardContent className="w-80">
               <div className="flex justify-between space-x-4">
                 <a href={htmlUrl} target="_blank" rel="noreferrer">
-                  <img src="/public/github.png" />
+                  <img src="/github.png" />
 
                   <div className="space-y-1">
                     <h4 className="text-sm text-teal-500 font-semibold">
@@ -124,3 +123,7 @@ export default function UserInfo({
     </div>
   );
 }
+
+// export const metadata: Metadata = {
+//   title: pageTitle,
+// };

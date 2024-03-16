@@ -3,10 +3,6 @@ import SearchInput from "@/components/SearchUser";
 import { Toaster } from "@/components/ui/toaster";
 import React from "react";
 
-import { useEffect, useState } from "react";
-
-//import { Toaster } from "../ui/toaster";
-
 function HomePage() {
   // const currentMode =
   //   localStorage.theme === "dark" ||
