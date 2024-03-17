@@ -1,7 +1,7 @@
 "use client";
 import { LoaderContext } from "@/context/LoaderContext";
-import Spinner from "./ui/Spinner";
-import User from "./ui/User";
+import Spinner from "../ui/Spinner";
+import User from "../ui/User";
 import { BASE_URL } from "@/utils/constants";
 import useFetchData from "@/services/useFetchData";
 import { useContext } from "react";
