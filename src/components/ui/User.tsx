@@ -11,7 +11,7 @@ type UserResultProps = {
 export default function User({ src, name }: UserResultProps) {
   return (
     <div className="flex column gap-10 mt-10 pb-4 relative">
-      <Link href={`/userInfo/${name}`}>
+      <Link href={`/${name}/userinfo`}>
         <Avatar>
           <AvatarImage src={src} />
         </Avatar>

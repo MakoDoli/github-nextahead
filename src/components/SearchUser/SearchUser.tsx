@@ -35,17 +35,13 @@ export default function SearchInput() {
     setTheme(theme === "dark" ? "light" : "dark");
   }
 
-  // useEffect(() => {
-  //   setAmount(results);
-  // }, [results, setAmount]);
-
   return (
-    <div className="flex gap-6 ">
+    <div className="flex  sm:flex-row md:flex-row gap-6 ">
       <Input className="dark:text-white" onChange={handleChange} />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" className="dark:text-teal-500">
-            Showing {results} results
+            {results} results
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">

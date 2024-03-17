@@ -41,7 +41,7 @@ type LoaderContextType = {
 export const LoaderProvider = ({ children }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [results, setResults] = useState("5");
+  const [results, setResults] = useState("10");
   const [theme, setTheme] = useState(currentMode);
 
   // useEffect(() => {
