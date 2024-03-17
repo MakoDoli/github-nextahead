@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { AR_One_Sans } from "next/font/google";
 import "./globals.css";
 import { LoaderProvider } from "@/context/LoaderContext";
+import { Toaster } from "@/components/ui/toaster";
 
 const font = AR_One_Sans({ subsets: ["latin"], weight: "400" });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${font.className} antialiased`}>
         <LoaderProvider>{children}</LoaderProvider>
+        <Toaster />
       </body>
     </html>
   );
