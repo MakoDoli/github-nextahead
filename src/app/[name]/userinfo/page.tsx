@@ -1,25 +1,27 @@
 import UserInfo from "@/components/UserInfo/UserInfo";
 import Spinner from "@/components/ui/Spinner";
-import { Metadata } from "next";
+
+import { getMetadata } from "@/utils/metadata";
+import { Metadata, ResolvingMetadata } from "next";
 import React, { Suspense } from "react";
 
-let pageTitle = "";
-
-export default function Userpage({
-  params,
-}: {
+type Props = {
   params: {
     name: string;
   };
-}) {
-  pageTitle = params.name;
+};
+
+export async function generateMetadata(
+  params: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  return getMetadata(params, parent);
+}
+
+export default function Userpage({ params }: Props) {
   return (
     <Suspense fallback={<Spinner />}>
       <UserInfo name={params.name} />
     </Suspense>
   );
 }
-console.log(pageTitle);
-export const metadata: Metadata = {
-  title: `User ${pageTitle}`,
-};
