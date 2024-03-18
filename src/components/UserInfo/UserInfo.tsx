@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 import { BASE_URL_USER } from "@/utils/constants";
 
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   HoverCard,
   HoverCardContent,
@@ -100,12 +100,10 @@ export default function UserInfo({ name }: { name: string }) {
               <p>Bio: </p>
             </div>
             <div className="text-teal-500 w-1/2">
-              <Suspense fallback={<Spinner />}>
-                <p>{login}</p>
-                <p>{followers}</p>
-                <p>{publicRepos}</p>
-                <p>{bio}</p>
-              </Suspense>
+              <p>{login}</p>
+              <p>{followers}</p>
+              <p>{publicRepos}</p>
+              <p>{bio}</p>
             </div>
           </div>
           <Button>
