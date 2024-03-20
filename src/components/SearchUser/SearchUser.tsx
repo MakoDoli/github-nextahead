@@ -12,15 +12,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LoaderContext } from "@/context/LoaderContext";
+import { SearchResults } from "@/context/SearchResults";
+import ThemeToggle from "../ui/ThemeToggle";
 
 type SearchProps = {
   setAmount: (e: string) => void;
 };
 
 export default function SearchInput() {
-  const { setSearchValue, results, setResults, theme, setTheme } =
-    useContext(LoaderContext);
+  const { setSearchValue, results, setResults } = useContext(SearchResults);
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
@@ -28,11 +28,6 @@ export default function SearchInput() {
     timeoutId.current = setTimeout(() => {
       setSearchValue(e.target.value);
     }, 1000);
-  }
-
-  function handleTheme() {
-    // window.localStorage.theme = theme === "dark" ? "light" : "dark";
-    setTheme(theme === "dark" ? "light" : "dark");
   }
 
   return (
@@ -54,9 +49,8 @@ export default function SearchInput() {
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-      <Button onClick={handleTheme}>
-        {theme === "dark" ? "Let it shine" : "Save my eyes"}
-      </Button>
+
+      <ThemeToggle />
     </div>
   );
 }
