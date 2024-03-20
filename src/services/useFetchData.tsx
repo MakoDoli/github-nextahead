@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 
 import { message } from "../utils/constants";
 import { useToast } from "@/components/ui/use-toast";
-import { LoaderContext } from "@/context/LoaderContext";
+import { SearchResults } from "@/context/SearchResults";
 
 type ChildProps = {
   login: string;
@@ -14,7 +14,7 @@ type ChildProps = {
 
 export default function useFetchData(url: string, id: string) {
   const { toast } = useToast();
-  const { setIsLoading } = useContext(LoaderContext);
+  const { setIsLoading } = useContext(SearchResults);
   const [list, setList] = useState<ChildProps[]>([]);
   const [isError, setIsError] = useState(false);
 

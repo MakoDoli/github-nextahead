@@ -1,7 +1,7 @@
 "use client";
 import { ReactNode, createContext, useEffect, useState } from "react";
 
-export const LoaderContext = createContext<LoaderContextType>({
+export const SearchResults = createContext<LoaderContextType>({
   isLoading: false,
   setIsLoading: () => {},
   searchValue: "",
@@ -38,22 +38,22 @@ type LoaderContextType = {
   setTheme: (mode: string) => void;
 };
 
-export const LoaderProvider = ({ children }: Props) => {
+export const SearchResultsProvider = ({ children }: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [results, setResults] = useState("10");
   const [theme, setTheme] = useState(currentMode);
 
-  // useEffect(() => {
-  //   if (theme === "dark") {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // }, [theme]);
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
   return (
-    <LoaderContext.Provider
+    <SearchResults.Provider
       value={{
         isLoading,
         setIsLoading,
@@ -66,6 +66,6 @@ export const LoaderProvider = ({ children }: Props) => {
       }}
     >
       {children}
-    </LoaderContext.Provider>
+    </SearchResults.Provider>
   );
 };

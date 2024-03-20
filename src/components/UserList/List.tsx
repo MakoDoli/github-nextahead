@@ -1,5 +1,5 @@
 "use client";
-import { LoaderContext } from "@/context/LoaderContext";
+import { SearchResults } from "@/context/SearchResults";
 import Spinner from "../ui/Spinner";
 import User from "../ui/User";
 import { BASE_URL } from "@/utils/constants";
@@ -11,10 +11,10 @@ import { useContext } from "react";
 // };
 
 export default function List() {
-  const { searchValue, results } = useContext(LoaderContext);
+  const { searchValue, results, isLoading } = useContext(SearchResults);
   const [list] = useFetchData(BASE_URL, searchValue);
 
-  const { isLoading } = useContext(LoaderContext);
+  //const { isLoading } = useContext(LoaderContext);
 
   const slicedList = results === "all" ? list : list.slice(0, Number(results));
 
