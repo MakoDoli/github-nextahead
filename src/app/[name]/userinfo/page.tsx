@@ -3,7 +3,7 @@ import Spinner from "@/components/ui/Spinner";
 
 import { getMetadata } from "@/utils/metadata";
 import { Metadata, ResolvingMetadata } from "next";
-import React from "react";
+import React, { Suspense } from "react";
 
 type Props = {
   params: {
@@ -19,5 +19,11 @@ export async function generateMetadata(
 }
 
 export default function Userpage({ params }: Props) {
-  return <UserInfo name={params.name} />;
+  return (
+    <>
+      <Suspense fallback={<Spinner />}>
+        <UserInfo name={params.name} />
+      </Suspense>
+    </>
+  );
 }
