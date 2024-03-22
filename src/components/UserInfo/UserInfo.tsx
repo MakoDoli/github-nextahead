@@ -36,7 +36,7 @@ export default async function UserInfo({ name }: { name: string }) {
   } = info;
 
   return (
-    <div className="w-full pt-12 h-screen dark:bg-slate-900">
+    <div className="w-full pt-12 min-h-screen dark:bg-slate-900">
       <div className="w-[300px] md:w-[500px] border border-slate-300 dark:border-black shadow-md  rounded-2xl  mx-auto text-center p-2 dark:bg-slate-800">
         <BackgroundGradient className="rounded-[22px] max-w-[500px] p-4 sm:p-6 bg-white dark:bg-zinc-900 items-center">
           <ThemeToggle />
