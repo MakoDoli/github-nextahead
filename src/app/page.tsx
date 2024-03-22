@@ -3,7 +3,7 @@ import SearchInput from "@/components/SearchUser/SearchUser";
 
 import React from "react";
 import UserList from "@/components/UserList/UserList";
-import ListOfUsers from "@/components/UserList/ListofUsers";
+import ListOfUsers from "@/components/UserList/UserList";
 import Provider from "@/utils/queryprovider";
 
 function HomePage() {
