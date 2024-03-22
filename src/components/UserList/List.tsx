@@ -6,15 +6,9 @@ import { BASE_URL } from "@/utils/constants";
 import useFetchData from "@/services/useFetchData";
 import { useContext } from "react";
 
-// type ListProps = {
-//   amount: string;
-// };
-
 export default function List() {
   const { searchValue, results, isLoading } = useContext(SearchResults);
   const [list] = useFetchData(BASE_URL, searchValue);
-
-  //const { isLoading } = useContext(LoaderContext);
 
   const slicedList = results === "all" ? list : list.slice(0, Number(results));
 
